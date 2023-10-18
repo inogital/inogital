@@ -3,5 +3,5 @@
 ### Tech Stack
 - Nextjs
 - Tailwindcss
-- Shadcn ui
+- Headlessui
 - Typescript
