@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { HiOutlineLightBulb } from 'react-icons/hi'
@@ -22,7 +23,7 @@ const HeroSection = () => {
                 </Link>
             </div>
         </div>
-        <div className="w-full mx-auto mt-20 text-center md:w-10/12">
+        <div className="w-full mx-auto my-20 text-center md:w-10/12">
             <div className="relative z-0 w-full mt-8">
                 <div className="relative overflow-hidden shadow-2xl">
                     <div className="flex items-center flex-none px-4 bg-slate-400 rounded-b-none h-11 rounded-xl">
@@ -32,7 +33,7 @@ const HeroSection = () => {
                             <div className="w-3 h-3 border-2 border-white rounded-full"></div>
                         </div>
                     </div>
-                    {/* <img src="https://cdn.devdojo.com/images/march2021/green-dashboard.jpg"/> */}
+                    <Image src='/img/hero.png' width={2000} height={1136} alt='hero_img' />
                 </div>
             </div>
         </div>

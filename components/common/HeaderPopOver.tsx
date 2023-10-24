@@ -7,13 +7,14 @@ import { SiGoogleclassroom } from 'react-icons/si';
 import { IconType } from "react-icons";
 import { VscOrganization } from 'react-icons/vsc';
 import { Fragment } from 'react';
+import { BiCodeCurly } from 'react-icons/bi';
 
 const solutions = [
   {
-    name: 'Software Development',
+    name: 'Software & Web Development',
     description: 'Top-notch software services',
     href: '/software-development',
-    icon: VscOrganization,
+    icon: BiCodeCurly,
     bgColor: "bg-red-200",
     textColor: "text-red-600"
   },
