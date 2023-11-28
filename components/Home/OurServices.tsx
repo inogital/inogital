@@ -1,91 +1,90 @@
-import Link from "next/link"
-import { HiArrowNarrowRight } from "react-icons/hi"
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
+import { Badge } from "@/components/ui/badge";
+import { Icon } from "../common/IconComponent";
+import { IconType } from "react-icons";
+import { solutions } from "@/components/common/data";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import Container from "../common/Container";
 
+type ServiceCardprops = {
+  solutionName: string;
+  bgColor: string;
+  textColor: string;
+  longDesc: string
+  linkText: string;
+  linkUrl: string;
+  icon: IconType;
+};
 
-const OurServices = () => {
-  return (
-    <section className="bg-white  antialiased">
-    <div className="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
-          Our Services
-        </h2>
-        <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl ">
-       Equipped with expertise and dedication to facilitate the expansion of our client&apos;s businesses!
-        </p>
-      </div>
-  
-      <div className="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="space-y-4">
-          <span
-            className="bg-rose-100 text-rose-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded ">
-            Alphabet Inc.
-          </span>
-          <h3 className="text-2xl font-bold leading-tight text-gray-900 ">
-            Official website
-          </h3>
-          <p className="text-lg font-normal text-gray-500 ">
-            Flowbite helps you connect with friends, family and communities of people who share your interests.
-          </p>
-          <Link href="#" title=""
-            className=" justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            >
-            View more
-            <HiArrowNarrowRight  />
-          </Link>
-        </div>
-  
-        <div className="space-y-4">
-          <span
-            className="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-            Microsoft Corp.
-          </span>
-          <h3 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white">
-            Management system
-          </h3>
-          <p className="text-lg font-normal text-gray-500 dark:text-gray-400">
-            Flowbite helps you connect with friends, family and communities of people who share your interests.
-          </p>
-          <a href="#" title=""
-            className="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            role="button">
-            View case study
-            <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-              fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd" />
-            </svg>
-          </a>
-        </div>
-  
-        <div className="space-y-4">
-          <span
-            className="bg-gray-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-            Adobe Inc.
-          </span>
-          <h3 className="text-2xl font-bold leading-tight text-gray-900 ">
-            Logo design
-          </h3>
-          <p className="text-lg font-normal text-gray-500 ">
-            Flowbite helps you connect with friends, family and communities of people who share your interests.
-          </p>
-          <a href="#" title=""
-            className="text-white bg-primary-700 justify-center hover:bg-primary-800 inline-flex items-center  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
-            role="button">
-            View case study
-            <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-              fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd" />
-            </svg>
-          </a>
-        </div>
-      </div>
+const OurServicesCard = ({
+  solutionName,
+  bgColor,
+  textColor,
+  longDesc,
+  linkText,
+  linkUrl,
+  icon,
+}: ServiceCardprops) => (
+  <Card className={` border-${bgColor}`}>
+     <CardHeader>
+        <CardTitle>
+        <Badge variant="secondary">{solutionName}</Badge>
+        </CardTitle>
+        
+      </CardHeader>
+    <CardContent> 
+    
+    <div className="flex justify-center">
+      <Icon IconComponent={icon} bgColor={bgColor} textColor={textColor} />
     </div>
-  </section>
-  )
-}
 
-export default OurServices
+    <p className="text-lg font-normal line-clamp-6 text-slate-600">{longDesc}</p>
+    <Link
+      href={linkUrl}
+      title={linkText}
+      className={` justify-center  inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+      role="button"
+    >
+      {linkText}
+      <HiArrowNarrowRight />
+    </Link>
+  
+  </CardContent>
+  </Card>
+);
+
+const OurServices = () => (
+  <Container >
+    <div className="max-w-2xl mx-auto text-center">
+      <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
+        Our Solutions
+      </h2>
+      <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl ">
+        Equipped with expertise and dedication to facilitate the expansion of
+        our client&apos;s businesses!
+      </p>
+    </div>
+    <div className="grid grid-cols-1  text-center gap-10 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      {solutions.map((sol) => (
+        <OurServicesCard
+          key={sol.id}
+          icon={sol.icon}
+          solutionName={sol.name}
+          bgColor={sol.bgColor}
+          textColor={sol.textColor}
+          longDesc={sol.longDesc}
+          linkText="View more"
+          linkUrl={sol.href}
+        />
+      ))}
+    </div>
+  </Container>
+);
+
+export default OurServices;
