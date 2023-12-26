@@ -3,7 +3,7 @@ import { IconType } from "react-icons";
 
 type IconProps = {
     IconComponent: IconType;
-    bgColor: string;
+    bgColor?: string;
     textColor: string;
   };
   

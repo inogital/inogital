@@ -31,24 +31,24 @@ const OurServicesCard = ({
   linkUrl,
   icon,
 }: ServiceCardprops) => (
-  <Card className={` border-${bgColor}`}>
+  <Card className={` border-${bgColor} bg-slate-900 rounded-3xl`}>
      <CardHeader>
         <CardTitle>
-        <Badge variant="secondary">{solutionName}</Badge>
+        <Badge >{solutionName}</Badge>
         </CardTitle>
         
       </CardHeader>
     <CardContent> 
     
     <div className="flex justify-center">
-      <Icon IconComponent={icon} bgColor={bgColor} textColor={textColor} />
+      <Icon IconComponent={icon}  textColor={textColor} />
     </div>
 
-    <p className="text-lg font-normal line-clamp-6 text-slate-600">{longDesc}</p>
+    <p className="text-lg font-normal line-clamp-6 text-slate-400">{longDesc}</p>
     <Link
       href={linkUrl}
       title={linkText}
-      className={` justify-center  inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+      className={` justify-center  inline-flex items-center text-slate-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
       role="button"
     >
       {linkText}
@@ -61,7 +61,7 @@ const OurServicesCard = ({
 
 const OurServices = () => (
   <Container >
-    <div className="max-w-2xl mx-auto text-center">
+    <div className="max-w-2xl mx-auto text-center mt-12">
       <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
         Our Solutions
       </h2>
@@ -70,7 +70,10 @@ const OurServices = () => (
         our client&apos;s businesses!
       </p>
     </div>
-    <div className="grid grid-cols-1  text-center gap-10 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+    <div className="container">
+
+  
+    <div className="grid grid-cols-1  text-center gap-10 py-12 sm:grid-cols-2 md:grid-cols-3  ">
       {solutions.map((sol) => (
         <OurServicesCard
           key={sol.id}
@@ -83,6 +86,7 @@ const OurServices = () => (
           linkUrl={sol.href}
         />
       ))}
+    </div>
     </div>
   </Container>
 );
