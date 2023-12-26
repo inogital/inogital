@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className="grid grid-cols-2  lg:grid-cols-3 p-8 items-center">
       <div>
-        <Image src="/img/inogital.png" width={50} height={50} alt="logo" />
+        <Image src="/img/inOgital.png" width={50} height={50} alt="logo" />
       </div>
       <div className="hidden lg:flex  items-center space-x-20">
         <Link href="/" className="font-semibold text-lg text-slate-600">

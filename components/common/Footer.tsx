@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="bg-slate-200  mx-auto px-12">
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center  text-slate-600 p-12 ">
         <div className="flex items-center ">
-          <Image src="/img/inogital.png" width={150} height={150} alt="logo" />
+          <Image src="/img/inOgital.png" width={150} height={150} alt="logo" />
         </div>
 
         <div className=" flex flex-col space-y-2">

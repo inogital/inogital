@@ -26,7 +26,7 @@ const SideDrawer = () => {
       <DrawerContent className="fixed inset-0 h-screen mt-0 w-64 ">
         <DrawerHeader>
           <div className="flex justify-center">
-            <Image src="/img/inogital.png" width={50} height={50} alt="logo" />
+            <Image src="/img/inOgital.png" width={50} height={50} alt="logo" />
           </div>
         </DrawerHeader>
         <div className="flex  flex-col items-center mt-4 space-y-5 ">
