@@ -35,8 +35,8 @@ export default function HeaderPopOver() {
                     textColor={item.textColor}
                   />
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-gray-300">
-                      {item.name}
+                    <p className="text-sm font-bold text-gray-300">
+                      {item.name}:
                     </p>
                     <p className="text-sm text-gray-300">{item.description}</p>
                   </div>

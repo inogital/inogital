@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeaderPopOver from "./HeaderPopOver";
 import { Button } from "@/components/ui/button";
+import SideDrawer from "./SideDrawer";
 
 const Header = () => {
   return (
@@ -20,8 +21,11 @@ const Header = () => {
           About
         </Link>
       </div>
-      <div className="flex justify-end">
+      <div className="hidden lg:flex  justify-end">
         <Button variant="destructive"> Get Started</Button>
+      </div>
+      <div className="flex lg:hidden  justify-end">
+        <SideDrawer />
       </div>
     </header>
   );
