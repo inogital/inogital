@@ -1,5 +1,7 @@
+import Header from '@/components/common/Header'
 import './globals.css'
 import type { Metadata } from 'next'
+import Footer from '@/components/common/Footer'
 
 export const metadata: Metadata = {
   title: 'inOgital',
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >{children}</body>
+      <body >
+        <Header/>
+        {children}
+        <Footer/>
+        </body>
     </html>
   )
 }
