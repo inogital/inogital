@@ -5,6 +5,8 @@ import Link from "next/link";
 import HeaderPopOver from "./HeaderPopOver";
 import { Button } from "@/components/ui/button";
 import SideDrawer from "./SideDrawer";
+import DialogWrapper from "./DialogWrapper";
+import RequestForm from "./RequestForm";
 
 const Header = () => {
   return (
@@ -22,7 +24,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="hidden lg:flex  justify-end">
-        <Button variant="destructive"> Get Started</Button>
+        <RequestForm/>
       </div>
       <div className="flex lg:hidden  justify-end">
         <SideDrawer />
