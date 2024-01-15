@@ -7,13 +7,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CarouselCard from "./CarouselCard";
+import { ProjectsDemos } from "../data/dummy-data";
 
 export function ProjectAndDemos() {
   return (
-    <section className="my-12">
-      <div className="my-8">
-        <h2 className="text-xl text-center font-extrabold leading-tight  lg:text-2xl">
-         Projects & Demos
+    <section className="my-12 lg:my-32">
+      <div className="my-8 text-center">
+        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
+          Projects & Demos
         </h2>
       </div>
       <div className="flex justify-center items-center my-12">
@@ -21,16 +22,16 @@ export function ProjectAndDemos() {
           opts={{
             align: "start",
           }}
-          className="w-full max-w-lg"
+          className="w-full max-w-[1280px]"
         >
           <CarouselContent className="-ml-1">
-            {Array.from({ length: 5 }).map((_, index) => (
+            {ProjectsDemos.map((pro, index) => (
               <CarouselItem
                 key={index}
                 className="pl-1 md:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-1">
-                  <CarouselCard/>
+                  <CarouselCard pro={pro} />
                 </div>
               </CarouselItem>
             ))}

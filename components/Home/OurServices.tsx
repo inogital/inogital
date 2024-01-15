@@ -61,7 +61,7 @@ const OurServicesCard = ({
 
 const OurServices = () => (
   <Container >
-    <div className="max-w-2xl mx-auto text-center mt-12">
+    <div className="max-w-2xl mx-auto text-center mt-12 lg:my-32">
       <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
         Our Solutions
       </h2>
