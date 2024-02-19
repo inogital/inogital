@@ -38,7 +38,7 @@ import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import DialogWrapper from "./DialogWrapper";
-import { servicesData } from "@/app/data/dummy-data";
+import { servicesData } from "@/lib/data/dummy-data";
 import { Input } from "../ui/input";
 
 const services = [

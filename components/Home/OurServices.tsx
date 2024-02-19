@@ -31,10 +31,10 @@ const OurServicesCard = ({
   linkUrl,
   icon,
 }: ServiceCardprops) => (
-  <Card className={` border-${bgColor} bg-slate-900 rounded-3xl`}>
+  <Card className={` border-${bgColor} bg-slate-50 rounded-3xl`}>
      <CardHeader>
         <CardTitle>
-        <Badge >{solutionName}</Badge>
+        <Badge variant="secondary">{solutionName}</Badge>
         </CardTitle>
         
       </CardHeader>
@@ -44,11 +44,11 @@ const OurServicesCard = ({
       <Icon IconComponent={icon}  textColor={textColor} />
     </div>
 
-    <p className="text-lg font-normal line-clamp-6 text-slate-400">{longDesc}</p>
+    <p className="text-lg font-normal line-clamp-6 text-slate-600">{longDesc}</p>
     <Link
       href={linkUrl}
       title={linkText}
-      className={` justify-center  inline-flex items-center text-slate-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+      className={` justify-center  inline-flex items-center text-slate-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
       role="button"
     >
       {linkText}

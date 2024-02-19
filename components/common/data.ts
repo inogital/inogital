@@ -55,8 +55,8 @@ export const solutions = [
     description: "Customized tech solutions for NPOs",
     href: "/npos",
     icon: VscOrganization,
-    bgColor: "bg-slate-200",
-    textColor: "text-slate-300",
+    bgColor: "bg-slate-600",
+    textColor: "text-slate-600",
     longDesc:" inOgital goes a step further by acting as a technology partner for NPOs. We collaborate closely with non-profits to understand their goals and challenges, devising customized tech solutions that align with their objectives. "
   },
 ];
