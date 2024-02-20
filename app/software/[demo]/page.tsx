@@ -34,7 +34,7 @@ export default async function demoPage({
               <p className=" font-semibold"> {demo.description}</p>
               <p className=" font-semibold">
                 {" "}
-                <Link href={demo.url} target="_blank">
+                <Link href={demo.url} target="_blank" className="text-blue-800 font-semibold">
                   {" "}
                  Visit site:  {demo.url}{" "}
                 </Link>{" "}

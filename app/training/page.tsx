@@ -2,6 +2,7 @@ import { TrainingData } from "@/lib/data/dummy-data";
 import React from "react";
 import TrainingHoverCard from "./TrainingHoverCard";
 import Container from "@/components/common/Container";
+import CTA from "@/components/common/CTA";
 
 const TrainingPage = () => {
   return (
@@ -29,6 +30,7 @@ const TrainingPage = () => {
           ))}
         </div>
       </div>
+      <CTA/>
     </>
   );
 };

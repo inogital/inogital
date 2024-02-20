@@ -86,7 +86,7 @@ export const ProjectsDemos = [
   {
     id: "d9b028ae-277e-4c11-817d-6771386a3143",
     url: "https://staging.chefytaste.co.za/",
-    img: "/img/software/chefytaste.png ",
+    img: "/img/software/chefytaste.png",
     title: "Chefy Taste ",
     category: "Food-Tech ",
     description:
@@ -97,7 +97,7 @@ export const ProjectsDemos = [
   {
     id: "3957eb94-5fb2-4d05-bf67-9895d4baa0d8",
     url: "https://dpsrestov2.vercel.app/",
-    img: "/img/software/dpsresto.png ",
+    img: "/img/software/dpsresto.png",
     title: "DPS Resto ",
     category: "Food-Tech ",
     description:
@@ -108,7 +108,7 @@ export const ProjectsDemos = [
   {
     id: "6492d799-151a-4ff8-b21d-2ab0b6ac2f16",
     url: "",
-    img: "/img/software/spanapro.png ",
+    img: "/img/software/spanapro.png",
     title: "Spana ",
     category: "Planner ",
     description:
@@ -119,7 +119,7 @@ export const ProjectsDemos = [
   {
     id: "1d93388a-d887-4ff0-a52e-5dc150d1d8a3",
     url: " ",
-    img: "/img/software/bath.png ",
+    img: "/img/software/bath.png",
     title: "Bath LMS ",
     category: "Edu-Tech ",
     description:
