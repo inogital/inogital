@@ -7,7 +7,7 @@ export const servicesData = [
 
 [
   {
-    id: "05eaebe1-8a44-45b6-9347-374a574de666",
+    
   },
   {
     id: "a6c475c7-7f9b-4375-a321-9796f53cf5f3",
@@ -28,17 +28,58 @@ export const servicesData = [
     id: "918ca563-d433-4c1f-b988-8692f94ce227",
   },
   {
-    id: "0074ddc9-ba47-4f24-aebf-cba5704f9ba9",
+   
   },
   {
-    id: "63feb488-511a-45b7-8b72-f0dec058d54b",
+    
+  },
+  {
+    
+  },
+];
+
+export const TrainingData = [
+  {
+    id: "3ffd954e-e9bd-444d-80c1-329d7c6ea3cd",
+    img: "/img/training/adminconsole.png",
+    title: "Navigating the Google Admin Console",
+    for: ["npos", "schools", "smes"],
+    todo: ["Provision a Admin roles", "Security settings", "Service accounts "],
+    duration: 2,
+    description:
+      "Learn how to navigate the Google Admin Console for your organisation, Learn password resets, Add a new user, suspend a user etc.",
+  },
+  {
+    id: "05eaebe1-8a44-45b6-9347-374a574de666",
+    img: "/img/training/bulk.png",
+    title: "Bulk Account Creation",
+    duration: 2,
+    for: ["npos", "schools"],
+    todo: ["Provision a csv user list", "Create org units", "Make a reusable account creator "],
+    description:
+      "Learn how to add bulk users at once on the Google Admin Dashboard.",
   },
   {
     id: "148e539c-054f-4ede-ab7b-69727ca712ae",
+    img: "/img/training/webfortea.png",
+    title: "Web Design for Teachers",
+    duration: 2.5,
+    for: [ "schools"],
+    todo: ["Use no code tools", "Design a website", "Deploy your website", "Update your website"],
+    description:
+      "Design your school website in less than 3 hrs. No coding skills required",
   },
   {
-    id: "3ffd954e-e9bd-444d-80c1-329d7c6ea3cd",
+    id: "63feb488-511a-45b7-8b72-f0dec058d54b",
+    img: "/img/training/shared.png",
+    title: "The Shared Drive",
+    duration: 1.5,
+    for: ["npos", "schools"],
+    todo: ["Create a Shared Drive", "Shared Files", "Secure the shared drive"],
+    description:
+      "Access resources from anywhere at anytime securely with your Org domain",
   },
+  
 ];
 
 export const ProjectsDemos = [
