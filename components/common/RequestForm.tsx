@@ -33,8 +33,6 @@ import {
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
 
-
-
 import toast from "react-hot-toast";
 import { useState } from "react";
 import DialogWrapper from "./DialogWrapper";
@@ -42,16 +40,26 @@ import { servicesData } from "@/lib/data/dummy-data";
 import { Input } from "../ui/input";
 
 const services = [
-    "Google Services", "Software & Web Development", "Tech Training", "Network Services"
-]
-
+  "Google Services",
+  "Software & Web Development",
+  "Tech Training",
+  "Network Services",
+];
 
 const RequestForm = () => {
-  
   const [open, setOpen] = useState(false);
 
+  const delaySetOpen = async() => {
+    setTimeout(() => {
+      setOpen(false);
+    }, 4000); // 4000 milliseconds = 4 seconds
+  };
+
   const formSchema = z.object({
-    notes: z.string().max(500),
+    name: z.string({
+      required_error: "Please add your name.",
+    }),
+    message: z.string().max(500),
 
     services: z.string({
       required_error: "Please select a Service.",
@@ -68,26 +76,25 @@ const RequestForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      notes: "",
-    }, 
+      message: "",
+    },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       const formattedValues = {
         ...values,
-       
       };
 
-      const res = await fetch("/api/leave", {
+      const res = await fetch("/api/mail", {
         method: "POST",
         body: JSON.stringify(formattedValues),
       });
 
       if (res.ok) {
         toast.success("Request Submitted", { duration: 4000 });
-        setOpen(false)
-        form.reset()
+        await delaySetOpen()
+        form.reset();
       } else {
         const errorMessage = await res.text();
 
@@ -116,7 +123,7 @@ const RequestForm = () => {
             name="services"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Services </FormLabel>
+                <FormLabel>Services Required</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -170,49 +177,62 @@ const RequestForm = () => {
             )}
           />
 
-<FormField
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Your Name</FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="Name" {...field} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Your Email Address</FormLabel>
                 <FormControl>
-                  <Input type="email"  placeholder="Email" {...field} />
+                  <Input type="email" placeholder="Email" {...field} />
                 </FormControl>
-                
+
                 <FormMessage />
               </FormItem>
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="phone"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Your Phone Number</FormLabel>
                 <FormControl>
-                  <Input type="phone"  placeholder="Phone" {...field} />
+                  <Input type="phone" placeholder="Phone" {...field} />
                 </FormControl>
-                
+
                 <FormMessage />
               </FormItem>
             )}
           />
 
-         
-
           <FormField
             control={form.control}
-            name="notes"
+            name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Notes</FormLabel>
+                <FormLabel>Message</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Notes" {...field} />
+                  <Textarea placeholder="Message" {...field} />
                 </FormControl>
                 <FormDescription>
-                  Add extra notes to support your request.
+                  Add a message to your request.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -220,7 +240,6 @@ const RequestForm = () => {
           />
 
           <Button type="submit">Submit</Button>
-          
         </form>
       </Form>
     </DialogWrapper>
