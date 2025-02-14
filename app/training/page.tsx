@@ -22,7 +22,7 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      <div className="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
+      <div className="py-8 lg:py-16 mx-auto max-w-(--breakpoint-xl) px-4">
         <div className=" grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  ">
           {TrainingData.map((training) => (
             <TrainingHoverCard key={training.id} training={training} />

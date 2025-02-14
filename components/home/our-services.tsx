@@ -42,7 +42,7 @@ const OurServicesCard = ({
       <Link
         href={linkUrl}
         title={linkText}
-        className={` justify-center  inline-flex items-center text-slate-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+        className={` justify-center  inline-flex items-center text-slate-700 focus:ring-4 focus:outline-hidden font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
         role="button"
       >
         {linkText}

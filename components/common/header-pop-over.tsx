@@ -27,7 +27,7 @@ export default function HeaderPopOver() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-slate-100 focus:outline-none "
+                  className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-slate-100 focus:outline-hidden "
                 >
                   <Icon
                     IconComponent={item.icon}
@@ -46,7 +46,7 @@ export default function HeaderPopOver() {
             <div className=" p-4">
               <a
                 href="##"
-                className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-slate-100 focus:outline-none "
+                className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-slate-100 focus:outline-hidden "
               >
                 <span className="flex items-center">
                   <span className="text-sm font-medium text-gray-500">
