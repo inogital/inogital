@@ -1,44 +1,24 @@
-"use client";
+"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { PiCaretUpDownBold } from "react-icons/pi";
-import { BsCheckLg } from "react-icons/bs";
-import { IoCalendarOutline } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { format } from "date-fns";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import { PiCaretUpDownBold } from "react-icons/pi"
+import { BsCheckLg } from "react-icons/bs"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
-import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils"
+import { Textarea } from "@/components/ui/textarea"
 
-import toast from "react-hot-toast";
-import { useState } from "react";
-import { servicesData } from "@/lib/data/dummy-data";
-import { Input } from "../ui/input";
-import DialogWrapper from "./dialog-wrapper";
-import { submitForm } from "@/app/actions/get-started-action";
+import toast from "react-hot-toast"
+import { useState } from "react"
+import { servicesData } from "@/lib/data/dummy-data"
+import { Input } from "../ui/input"
+import DialogWrapper from "./dialog-wrapper"
+import { submitForm } from "@/app/actions/get-started-action"
 
 const formSchema = z.object({
   name: z.string().min(1, "Please add your name."),
@@ -46,37 +26,41 @@ const formSchema = z.object({
   services: z.string().min(1, "Please select a Service."),
   email: z.string().email("Invalid email address."),
   phone: z.string().min(1, "A phone number is required."),
-});
+})
 
 const RequestForm = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const delaySetOpen = async () => {
     setTimeout(() => {
-      setOpen(false);
-    }, 4000); // 4000 milliseconds = 4 seconds
-  };
+      setOpen(false)
+    }, 4000) // 4000 milliseconds = 4 seconds
+  }
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       message: "",
     },
-  });
+  })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true)
     try {
-      const result = await submitForm(values);
+      const result = await submitForm(values)
       if (result.success) {
-        toast.success("Request Submitted", { duration: 4000 });
-        setTimeout(() => setOpen(false), 4000);
-        form.reset();
+        toast.success("Request Submitted", { duration: 4000 })
+        setTimeout(() => setOpen(false), 4000)
+        form.reset()
       } else {
-        toast.error(result.message, { duration: 6000 });
+        toast.error(result.message, { duration: 6000 })
       }
     } catch (error) {
-      console.error("An error occurred:", error);
-      toast.error("An unexpected error occurred");
+      console.error("An error occurred:", error)
+      toast.error("An unexpected error occurred")
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -104,15 +88,10 @@ const RequestForm = () => {
                       <Button
                         variant="outline"
                         role="combobox"
-                        className={cn(
-                          " justify-between",
-                          !field.value && "text-muted-foreground"
-                        )}
+                        className={cn(" justify-between", !field.value && "text-muted-foreground")}
                       >
                         {field.value
-                          ? servicesData.find(
-                              (service) => service.value === field.value
-                            )?.label
+                          ? servicesData.find((service) => service.value === field.value)?.label
                           : "Select a service"}
                         <PiCaretUpDownBold className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                       </Button>
@@ -128,15 +107,13 @@ const RequestForm = () => {
                             value={service.label}
                             key={service.value}
                             onSelect={() => {
-                              form.setValue("services", service.value);
+                              form.setValue("services", service.value)
                             }}
                           >
                             <BsCheckLg
                               className={cn(
                                 "mr-2 h-4 w-4",
-                                service.value === field.value
-                                  ? "opacity-100"
-                                  : "opacity-0"
+                                service.value === field.value ? "opacity-100" : "opacity-0",
                               )}
                             />
                             {service.label}
@@ -205,19 +182,20 @@ const RequestForm = () => {
                 <FormControl>
                   <Textarea placeholder="Message" {...field} />
                 </FormControl>
-                <FormDescription>
-                  Add a message to your request.
-                </FormDescription>
+                <FormDescription>Add a message to your request.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </Button>
         </form>
       </Form>
     </DialogWrapper>
-  );
-};
+  )
+}
 
-export default RequestForm;
+export default RequestForm
+
