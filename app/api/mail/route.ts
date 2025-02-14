@@ -1,4 +1,4 @@
-import sendMail from "@/lib/sendMail";
+import sendMail from "@/lib/send-mail";
 import { NextRequest, NextResponse } from "next/server";
 
 type FormData = {
@@ -12,8 +12,7 @@ export async function POST(req: NextRequest) {
   try {
     const body: FormData = await req.json();
 
-
-    const { name,  email, message, phone } = body;
+    const { name, email, message, phone } = body;
 
     const res = await sendMail({
       subject: `New Form Submission from ${name}`,

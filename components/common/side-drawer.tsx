@@ -8,7 +8,7 @@ import {
 import { TiThMenu } from "react-icons/ti";
 import Image from "next/image";
 import Link from "next/link";
-import HeaderPopOver from "./HeaderPopOver";
+import HeaderPopOver from "./header-pop-over";
 
 const SideDrawer = () => {
   return (

@@ -1,14 +1,13 @@
-
-import { ProjectAndDemos } from './ProjectAndDemos'
-import SoftHeroSection from './SoftHeroSection'
+import { ProjectAndDemos } from "./project-and-demos";
+import SoftHeroSection from "./soft-hero-section";
 
 const SoftwareDevPage = () => {
   return (
     <>
-    <SoftHeroSection/>
-    <ProjectAndDemos/>
+      <SoftHeroSection />
+      <ProjectAndDemos />
     </>
-  )
-}
+  );
+};
 
-export default SoftwareDevPage
+export default SoftwareDevPage;

@@ -35,9 +35,9 @@ import { Textarea } from "@/components/ui/textarea";
 
 import toast from "react-hot-toast";
 import { useState } from "react";
-import DialogWrapper from "./DialogWrapper";
 import { servicesData } from "@/lib/data/dummy-data";
 import { Input } from "../ui/input";
+import DialogWrapper from "./dialog-wrapper";
 
 const services = [
   "Google Services",

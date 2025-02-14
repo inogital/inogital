@@ -8,8 +8,8 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { solutions } from "@/components/common/data";
-import { Icon } from "./IconComponent";
 import Link from "next/link";
+import { Icon } from "./icon-component";
 
 
 

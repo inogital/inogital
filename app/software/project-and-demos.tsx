@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ProjectsDemos } from "../../lib/data/dummy-data";
-import Container from "@/components/common/Container";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -14,7 +13,7 @@ export function ProjectAndDemos() {
           Projects & Demos
         </h2>
       </div>
-      <Container>
+      <div>
       {ProjectsDemos?.map((project) => (
         <section
           className="grid grid-cols-1 md:grid-cols-2   gap-4 my-24"
@@ -53,7 +52,7 @@ export function ProjectAndDemos() {
           </div>
         </section>
       ))}
-    </Container>
+    </div>
     </section>
   );
 }

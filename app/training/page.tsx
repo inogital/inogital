@@ -1,8 +1,7 @@
-import { TrainingData } from "@/lib/data/dummy-data";
 import React from "react";
-import TrainingHoverCard from "./TrainingHoverCard";
-import Container from "@/components/common/Container";
-import CTA from "@/components/common/CTA";
+import { TrainingData } from "@/lib/data/dummy-data";
+import TrainingHoverCard from "./training-hover-card";
+import CTA from "@/components/common/cta";
 
 const TrainingPage = () => {
   return (
@@ -30,7 +29,7 @@ const TrainingPage = () => {
           ))}
         </div>
       </div>
-      <CTA/>
+      <CTA />
     </>
   );
 };

@@ -1,7 +1,7 @@
-import HeroSection from "@/components/Home/HeroSection";
-import OurPartners from "@/components/Home/OurPartners";
-import OurServices from "@/components/Home/OurServices";
-import CTA from "@/components/common/CTA";
+import CTA from "@/components/common/cta";
+import HeroSection from "@/components/home/hero-section";
+import OurPartners from "@/components/home/our-partners";
+import OurServices from "@/components/home/our-services";
 
 export default function Home() {
   return (

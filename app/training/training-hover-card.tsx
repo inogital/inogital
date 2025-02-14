@@ -5,10 +5,10 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import TrainingCard from "./TrainingCard";
 import { Badge } from "@/components/ui/badge";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
+import TrainingCard from "./training-card";
 
 type TrainingHoverCardProps = {
   training: TrainingType;

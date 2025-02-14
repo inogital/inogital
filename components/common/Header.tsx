@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import HeaderPopOver from "./HeaderPopOver";
-import SideDrawer from "./SideDrawer";
-import RequestForm from "./RequestForm";
+import HeaderPopOver from "./header-pop-over";
+import RequestForm from "./request-form";
+import SideDrawer from "./side-drawer";
+
 
 const Header = () => {
   return (

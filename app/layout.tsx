@@ -1,8 +1,8 @@
-import Header from '@/components/common/Header'
-import './globals.css'
-import Footer from '@/components/common/Footer'
-import { siteConfig } from '@/config/site'
+import Header from "@/components/common/header";
+import "./globals.css";
+import { siteConfig } from "@/config/site";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/common/footer";
 
 export const metadata = {
   title: {
@@ -45,21 +45,21 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body >
-      <Toaster />
-        <Header/>
+      <body>
+        <Toaster />
+        <Header />
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
-  )
+  );
 }
