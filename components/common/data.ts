@@ -11,7 +11,7 @@ export const solutions = [
     description: "Top-notch software services",
     href: "/software",
     icon: BiCodeCurly,
-    bgColor: "bg-red-200",
+    bgColor: "red-200",
     textColor: "red-600",
     longDesc:
       "inOgital offers top-notch software development services. We cater for the specific needs of each client, ensuring that the software is well tested, deployed and monitored according to defined industry standards.",
@@ -22,7 +22,7 @@ export const solutions = [
     description: "Build labs and ensure connectivity",
     href: "/network",
     icon: BsHddNetwork,
-    bgColor: "bg-green-200",
+    bgColor: "green-200",
     textColor: "green-600",
     longDesc:
       "inOgital provides robust network connectivity solutions tailored to the unique requirements of schools, NPOs, and SMEs. Our expert team designs, installs, and maintains secure and efficient networks, ensuring seamless communication and data transfer.",
@@ -34,7 +34,7 @@ export const solutions = [
     href: "/gservices",
     icon: IoLogoGoogle,
     bgColor: "blue-200",
-    textColor: "text-blue-500 ",
+    textColor: "blue-500",
     longDesc:
       " inOgital assists educational institutions, NPOs, and SMEs in seamlessly integrating and deploying Google Workspace (formerly G Suite) solutions. This includes setting up collaborative tools such as Gmail, Google Drive, Google Docs, Sheets, and more, fostering enhanced communication and collaboration within organizations. ",
   },
@@ -44,8 +44,8 @@ export const solutions = [
     description: "Keep track of your growth",
     href: "/training",
     icon: SiGoogleclassroom,
-    bgColor: "bg-amber-200 ",
-    textColor: "amber-600 ",
+    bgColor: "amber-200",
+    textColor: "amber-600",
     longDesc:
       "We recognizes the importance of staying up-to-date with the latest technological advancements. Therefore we conduct workshops and training sessions for schools and NPOs, equipping their staff with the necessary skills to embrace and utilize cutting-edge technologies effectively.",
   },
@@ -55,7 +55,7 @@ export const solutions = [
     description: "Customized tech solutions for NPOs",
     href: "/npos",
     icon: VscOrganization,
-    bgColor: "bg-slate-600",
+    bgColor: "slate-200",
     textColor: "slate-600",
     longDesc:" inOgital goes a step further by acting as a technology partner for NPOs. We collaborate closely with non-profits to understand their goals and challenges, devising customized tech solutions that align with their objectives. "
   },

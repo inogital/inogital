@@ -1,48 +1,96 @@
-import Link from "next/link";
+import { Facebook, Linkedin, PhoneCall, Twitter } from "lucide-react";
 import Image from "next/image";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
-import { BsFacebook } from "react-icons/bs";
-import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
-const Footer = () => {
+export default function Footer() {
   const Year = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-950  mx-auto px-12">
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center  text-slate-300 p-12 ">
-        <div className="flex items-center ">
-          <Image src="/img/inOgital.png" width={150} height={150} alt="logo" />
-        </div>
+    <footer className="relative bg-slate-950  text-white z-10 pb-10 pt-20  lg:pb-20 lg:pt-[120px]">
+      <div className="mx-auto px-6">
+        <div className="-mx-4 flex flex-wrap">
+          <FooterSection className="w-full px-4 sm:w-2/3 lg:w-3/12">
+            <Link href="/" className="mb-6 inline-block max-w-[160px]">
+              <Image
+                src="/img/inOgital.png"
+                alt="logo"
+                width={150}
+                height={150}
+                className="max-w-full"
+              />
+            </Link>
+            <p className="mb-7 text-base">inOgital is a leading provider of innovative digital solutions.</p>
+            <ContactInfo />
+          </FooterSection>
 
-        <div className=" flex flex-col space-y-2">
-          <h2 className="font-semibold uppercase mb-3">Quick Links</h2>
-          <Link href="/software">Software Development</Link>
-          <Link href="/gservices">Google Services</Link>
-          <Link href="/training">Training</Link>
-          <Link href="/npos">Non-Profit</Link>
-        </div>
+          <LinkGroup header="Quick Links">
+            <NavLink link="/software" label="Software Development" />
+            <NavLink link="/gservices" label="Google Services" />
+            <NavLink link="/training" label="Training" />
+            <NavLink link="/npos" label="Non-Profit" />
+          </LinkGroup>
 
-        <div > 
-        <h2 className="font-semibold uppercase mb-3">Contact</h2>
-        <p>info@inogital.com</p>
-        </div>
+          <FooterSection className="w-full px-4 sm:w-1/2 lg:w-3/12">
+            <h4 className="mb-9 text-lg font-semibold">Contact</h4>
+            <Link href="mailto:info@inogital.com" className="text-base text-body-color dark:text-dark-6">info@inogital.com</Link>
+          </FooterSection>
 
-      </section>
-      <section className="sm:flex sm:items-center sm:justify-between pb-12 text-slate-300   ">
-        <p>© {Year} inOgital. All rights reserved.</p>
-        <div className="flex items-center space-x-5">
-          <Link href="/https://www.linkedin.com/company/inogital">
-            <BiLogoLinkedinSquare size={18} />
-          </Link>
-          <Link href="/https://www.facebook.com/inOgital">
-            <BsFacebook size={18} />
-          </Link>
-          <Link href="/https://twitter.com/inogital">
-            <FaXTwitter size={18} />
-          </Link>
+          <FooterSection className="w-full px-4 sm:w-1/2 lg:w-3/12">
+            <h4 className="mb-9 text-lg font-semibold">Follow Us On</h4>
+            <SocialLinks />
+            <p className="text-base text-body-color dark:text-dark-6">
+              &copy; {Year} inOgital. All rights reserved.
+            </p>
+          </FooterSection>
         </div>
-      </section>
+      </div>
     </footer>
   );
-};
+}
 
-export default Footer;
+const FooterSection = ({ children, className }: { children: React.ReactNode; className: string }) => (
+  <div className={`mb-10 w-full ${className}`}>{children}</div>
+);
+
+const ContactInfo = () => (
+  <p className="flex items-center text-sm font-medium">
+    <PhoneCall />
+    <span></span>
+  </p>
+);
+
+const LinkGroup = ({ children, header }: { children: React.ReactNode; header: string }) => (
+  <FooterSection className="w-full px-4 sm:w-1/2 lg:w-2/12">
+    <h4 className="mb-9 text-lg font-semibold text-dark">{header}</h4>
+    <ul className="space-y-3">{children}</ul>
+  </FooterSection>
+);
+
+const NavLink = ({ link, label }: { link: string; label: string }) => (
+  <li>
+    <Link
+      href={link}
+      className="inline-block text-base leading-loose text-body-color hover:text-primary"
+    >
+      {label}
+    </Link>
+  </li>
+);
+
+const SocialLinks = () => (
+  <div className="mb-6 flex items-center">
+    <SocialLink href="https://www.linkedin.com/company/inogital" icon={<Linkedin />} />
+    <SocialLink href="https://www.facebook.com/inOgital" icon={<Facebook />} />
+    <SocialLink href="https://twitter.com/inogital" icon={<Twitter />} />
+  </div>
+);
+
+const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
+  <Link
+    href={href}
+    target="_blank"
+    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 sm:mr-4 lg:mr-3 xl:mr-4"
+  >
+    {icon}
+  </Link>
+);

@@ -1,7 +1,7 @@
 import React from "react";
 import { TrainingData } from "@/lib/data/dummy-data";
 import TrainingHoverCard from "./training-hover-card";
-import CTA from "@/components/common/cta";
+import CTA from "@/components/common/call-to-action";
 
 const TrainingPage = () => {
   return (
