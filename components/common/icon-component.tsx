@@ -1,16 +1,12 @@
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons"
 
+interface IconProps {
+  IconComponent: IconType
+  textColor: string
+  className?: string
+}
 
-type IconProps = {
-    IconComponent: IconType;
-    bgColor?: string;
-    textColor: string;
-  };
-  
-  export function Icon({ IconComponent, bgColor, textColor }: IconProps) {
-    return (
-      <div className={`p-3 ${bgColor} ${textColor} rounded-xl`}>
-        <IconComponent size={28} />
-      </div>
-    );
-  }
+export const Icon = ({ IconComponent, textColor, className }: IconProps) => (
+  <IconComponent className={`text-${textColor} ${className || ""}`} />
+)
+

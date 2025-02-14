@@ -5,7 +5,7 @@ import OurServices from "@/components/home/our-services";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="flex min-h-screen flex-col">
       <HeroSection />
       <OurServices />
       <OurPartners/>

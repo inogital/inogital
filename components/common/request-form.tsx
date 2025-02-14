@@ -38,40 +38,24 @@ import { useState } from "react";
 import { servicesData } from "@/lib/data/dummy-data";
 import { Input } from "../ui/input";
 import DialogWrapper from "./dialog-wrapper";
+import { submitForm } from "@/app/actions/get-started-action";
 
-const services = [
-  "Google Services",
-  "Software & Web Development",
-  "Tech Training",
-  "Network Services",
-];
+const formSchema = z.object({
+  name: z.string().min(1, "Please add your name."),
+  message: z.string().max(500),
+  services: z.string().min(1, "Please select a Service."),
+  email: z.string().email("Invalid email address."),
+  phone: z.string().min(1, "A phone number is required."),
+});
 
 const RequestForm = () => {
   const [open, setOpen] = useState(false);
 
-  const delaySetOpen = async() => {
+  const delaySetOpen = async () => {
     setTimeout(() => {
       setOpen(false);
     }, 4000); // 4000 milliseconds = 4 seconds
   };
-
-  const formSchema = z.object({
-    name: z.string({
-      required_error: "Please add your name.",
-    }),
-    message: z.string().max(500),
-
-    services: z.string({
-      required_error: "Please select a Service.",
-    }),
-
-    email: z.string({
-      required_error: "An email is required.",
-    }),
-    phone: z.string({
-      required_error: "An phone number is required.",
-    }),
-  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -82,27 +66,17 @@ const RequestForm = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const formattedValues = {
-        ...values,
-      };
-
-      const res = await fetch("/api/mail", {
-        method: "POST",
-        body: JSON.stringify(formattedValues),
-      });
-
-      if (res.ok) {
+      const result = await submitForm(values);
+      if (result.success) {
         toast.success("Request Submitted", { duration: 4000 });
-        await delaySetOpen()
+        setTimeout(() => setOpen(false), 4000);
         form.reset();
       } else {
-        const errorMessage = await res.text();
-
-        toast.error(`An error occured ${errorMessage}`, { duration: 6000 });
+        toast.error(result.message, { duration: 6000 });
       }
     } catch (error) {
       console.error("An error occurred:", error);
-      toast.error("An Unexpected error occured");
+      toast.error("An unexpected error occurred");
     }
   }
 

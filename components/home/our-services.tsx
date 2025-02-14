@@ -1,70 +1,62 @@
-import Link from "next/link";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { Badge } from "@/components/ui/badge";
-import { IconType } from "react-icons";
-import { solutions } from "@/components/common/data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Icon } from "../common/icon-component";
+import Link from "next/link"
+import { HiArrowNarrowRight } from "react-icons/hi"
+import { Badge } from "@/components/ui/badge"
+import type { IconType } from "react-icons"
+import { solutions } from "@/components/common/data"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Icon } from "../common/icon-component"
 
-type ServiceCardprops = {
-  solutionName: string;
-  bgColor: string;
-  textColor: string;
-  longDesc: string;
-  linkText: string;
-  linkUrl: string;
-  icon: IconType;
-};
+type ServiceCardProps = {
+  solutionName: string
+  bgColor: string
+  textColor: string
+  longDesc: string
+  linkText: string
+  linkUrl: string
+  icon: IconType
+}
 
-const OurServicesCard = ({
-  solutionName,
-  bgColor,
-  textColor,
-  longDesc,
-  linkText,
-  linkUrl,
-  icon,
-}: ServiceCardprops) => (
-  <Card className={` border-${bgColor} bg-slate-50 rounded-3xl`}>
-    <CardHeader>
+const OurServicesCard = ({ solutionName, bgColor, textColor, longDesc, linkText, linkUrl, icon }: ServiceCardProps) => (
+  <Card
+    className={`border-${bgColor} bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden`}
+  >
+    <CardHeader className="pb-4">
       <CardTitle>
-        <Badge variant="secondary">{solutionName}</Badge>
+        <Badge variant="secondary" className="text-sm font-semibold px-3 py-1">
+          {solutionName}
+        </Badge>
       </CardTitle>
     </CardHeader>
-    <CardContent>
-      <div className="flex justify-center">
-        <Icon IconComponent={icon} textColor={textColor} />
+    <CardContent className="flex flex-col items-center space-y-4">
+      <div className={`p-4 rounded-full bg-${bgColor} bg-opacity-10`}>
+        <Icon IconComponent={icon} textColor={textColor} className="w-12 h-12" />
       </div>
-
-      <p className="text-lg font-normal line-clamp-6 text-slate-600">
-        {longDesc}
-      </p>
+      <p className="text-base font-normal line-clamp-4 text-slate-600 text-center">{longDesc}</p>
       <Link
         href={linkUrl}
         title={linkText}
-        className={` justify-center  inline-flex items-center text-slate-700 focus:ring-4 focus:outline-hidden font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+        className={`mt-4 inline-flex items-center justify-center text-${textColor} hover:text-${bgColor} focus:ring-4 focus:ring-${bgColor} focus:ring-opacity-50 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 ease-in-out`}
         role="button"
       >
         {linkText}
-        <HiArrowNarrowRight />
+        <HiArrowNarrowRight className="ml-2" />
       </Link>
     </CardContent>
   </Card>
-);
+)
 
 const OurServices = () => (
-  <>
-    <div className="max-w-2xl mx-auto text-center mt-12 lg:my-32">
-      <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
-        Our Solutions
-      </h2>
-      <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl ">
-        Equipped with expertise and dedication to facilitate the expansion of
-        our client&apos;s businesses!
-      </p>
-    </div>
-    <div className="container">
-      <div className="grid grid-cols-1  text-center gap-10 py-12 sm:grid-cols-2 md:grid-cols-3  ">
+  <section className="py-16 lg:py-32 bg-gradient-to-b from-white to-slate-50">
+    <div className="container mx-auto px-4">
+      <div className="max-w-3xl mx-auto text-center mb-16">
+        <h2 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl mb-4">
+          Our Solutions
+        </h2>
+        <p className="text-xl font-normal text-gray-600">
+          Equipped with expertise and dedication to facilitate the expansion of our client&apos;s businesses!
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {solutions.map((sol) => (
           <OurServicesCard
             key={sol.id}
@@ -79,7 +71,8 @@ const OurServices = () => (
         ))}
       </div>
     </div>
-  </>
-);
+  </section>
+)
 
-export default OurServices;
+export default OurServices
+
