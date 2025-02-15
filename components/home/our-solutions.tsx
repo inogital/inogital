@@ -1,5 +1,5 @@
 
-import { solutions } from "@/components/common/data";
+import { solutions } from "@/lib/data/solutions-data";
 import { OurSolutionsCard } from "./our-solutions-card";
 
 

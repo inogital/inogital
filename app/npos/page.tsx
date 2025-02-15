@@ -1,23 +1,21 @@
-import React from 'react'
+import NPOServices from "./npo-services";
+import NPOCTA from "./npo-cta";
+import NPOCollab from "./npo-collab";
 
-const NposPage = () => {
+export default function NPOsPage() {
   return (
-    <section className="relative  flex items-center justify-center h-[70vh]  bg-[url('/img/herobg.png')] bg-no-repeat bg-cover bg-blend-saturation ">
-    <div className="absolute inset-0 bg-blue-700 text-white py-8 opacity-50"></div>
-        <div className="relative px-12 mx-auto max-w-7xl  z-5">
-            <div className="w-full mx-auto text-center md:w-11/12 xl:w-9/12 ">
-                <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-normal text-slate-200 md:text-6xl md:tracking-tight">
-                    NPOS Page
-                </h1>
-                <p className="px-0 mb-8 text-lg  text-slate-200 md:text-xl lg:px-24">
-               work in progress page check again later
-                </p>
-                
-            </div>
-           
-        </div>
-    </section>
-  )
+    <main className="container mx-auto px-4 py-8">
+      <section className="text-center py-20">
+        <h1 className="text-4xl font-bold mb-4">
+          Technology Solutions for Non-Profits
+        </h1>
+        <p className="text-xl mb-8">
+          inOgital: Your Dedicated Technology Partner
+        </p>
+      </section>
+      <NPOServices />
+      <NPOCollab />
+      <NPOCTA />
+    </main>
+  );
 }
-
-export default NposPage

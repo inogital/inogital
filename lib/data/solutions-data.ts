@@ -17,18 +17,7 @@ export const solutions = [
     longDesc:
       "inOgital offers top-notch software development services. We cater for the specific needs of each client, ensuring that the software is well tested, deployed and monitored according to defined industry standards.",
   },
-  {
-    id: "network001",
-    name: "Network Solutions",
-    description: "Build labs and ensure connectivity",
-    href: "/network",
-    icon: BsHddNetwork,
-    borderColor: "border-green-200",
-    bgColor: "bg-green-200",
-    textColor: "text-green-600",
-    longDesc:
-      "inOgital provides robust network connectivity solutions tailored to the unique requirements of schools, NPOs, and SMEs. Our expert team designs, installs, and maintains secure and efficient networks, ensuring seamless communication and data transfer.",
-  },
+
   {
     id: "google001",
     name: "Google Services Partner",
@@ -54,6 +43,18 @@ export const solutions = [
       "We recognizes the importance of staying up-to-date with the latest technological advancements. Therefore we conduct workshops and training sessions for schools and NPOs, equipping their staff with the necessary skills to embrace and utilize cutting-edge technologies effectively.",
   },
   {
+    id: "network001",
+    name: "Network Solutions",
+    description: "Build labs and ensure connectivity",
+    href: "/network",
+    icon: BsHddNetwork,
+    borderColor: "border-green-200",
+    bgColor: "bg-green-200",
+    textColor: "text-green-600",
+    longDesc:
+      "inOgital provides robust network connectivity solutions tailored to the unique requirements of schools, NPOs, and SMEs. Our expert team designs, installs, and maintains secure and efficient networks, ensuring seamless communication and data transfer.",
+  },
+  {
     id: "npos001",
     name: "Tech Partner for NPOs",
     description: "Customized tech solutions for NPOs",
@@ -62,6 +63,7 @@ export const solutions = [
     borderColor: "border-slate-200",
     bgColor: "bg-slate-200",
     textColor: "text-slate-600",
-    longDesc:" inOgital goes a step further by acting as a technology partner for NPOs. We collaborate closely with non-profits to understand their goals and challenges, devising customized tech solutions that align with their objectives. "
+    longDesc:
+      " inOgital goes a step further by acting as a technology partner for NPOs. We collaborate closely with non-profits to understand their goals and challenges, devising customized tech solutions that align with their objectives. ",
   },
 ];

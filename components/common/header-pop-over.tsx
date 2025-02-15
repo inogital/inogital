@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,9 +8,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { solutions } from "@/components/common/data"
-import Link from "next/link"
 import { Icon } from "./icon-component"
+import { solutions } from "@/lib/data/solutions-data" 
 
 export default function HeaderPopOver() {
   return (

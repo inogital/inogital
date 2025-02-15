@@ -1,58 +1,44 @@
-import Image from "next/image";
-import { ProjectsDemos } from "../../lib/data/dummy-data";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { ProjectsDemos } from "../../lib/data/dummy-data"
 
 export function ProjectAndDemos() {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL as string
-
   return (
-    <section className="mb-12 lg:my-32">
-      <div className="my-8 text-center">
-        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl ">
+    <section className="py-12 lg:py-24">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl mb-12 text-center">
           Projects & Demos
         </h2>
+        <div className="space-y-24">
+          {ProjectsDemos?.map((project) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" key={project.title}>
+              <div className="overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
+                <Image
+                  src={project.img || "/placeholder.svg"}
+                  width={1280}
+                  height={768}
+                  alt={project.title}
+                  className="w-full h-auto object-cover transition-all duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col space-y-4">
+                <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
+                <p className="text-gray-600 text-lg">{project.description}</p>
+                <p className="text-gray-700">
+                  Category: <span className="font-semibold">{project.category}</span>
+                </p>
+                <Link href={`/software/${project.slug}?id=${project.id}`}>
+                  <Button variant="outline" className="mt-4 transition-all duration-300 hover:bg-gray-100">
+                    View Demo
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div>
-      {ProjectsDemos?.map((project) => (
-        <section
-          className="grid grid-cols-1 md:grid-cols-2   gap-4 my-24"
-          key={project.title}
-        >
-          <div className=" overflow-hidden">
-            <Image
-              src={project.img}
-              width={1280}
-              height={768}
-              alt="project"
-              className=" w-full h-full rounded-md  object-contain transition-all hover:scale-105  "
-            />
-          </div>
-          <div className="flex flex-col ">
-            <h2 className="mb-4 text-xl tracking-tight font-extrabold text-slate-800 ">
-              {project.title}
-            </h2>
-            <p className="text-gray-500">{project.description}</p>
-            <p className="my-4">
-              {" "}
-              Category:{" "}
-              <span className=" text-gray-900 font-semibold">
-                {" "}
-                {project.category}
-              </span>{" "}
-            </p>
-           
-           
-              <Link
-                href={`/software/${project.slug}?id=${project.id}`}
-              >
-                <Button variant='outline'>View Demo</Button>
-              </Link>
-           
-          </div>
-        </section>
-      ))}
-    </div>
     </section>
-  );
+  )
 }
+

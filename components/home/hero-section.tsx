@@ -28,7 +28,7 @@ const HeroSection = () => {
             on what matters
           </h1>
           <p className="mb-10 text-lg text-slate-200 md:text-xl lg:text-2xl max-w-3xl mx-auto">
-            Focus on your business goals, and let us take care of your I.T requirements with cutting-edge solutions.
+            Focus on your business goals, and let us take care of your tech requirements with cutting-edge solutions.
           </p>
           <a
             href="#services"

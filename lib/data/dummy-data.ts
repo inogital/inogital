@@ -85,7 +85,7 @@ export const TrainingData = [
 export const ProjectsDemos = [
   {
     id: "d9b028ae-277e-4c11-817d-6771386a3143",
-    url: "https://staging.chefytaste.co.za/",
+    url: "",
     img: "/img/software/chefytaste.png",
     title: "Chefy Taste ",
     category: "Food-Tech ",
@@ -96,7 +96,7 @@ export const ProjectsDemos = [
   },
   {
     id: "3957eb94-5fb2-4d05-bf67-9895d4baa0d8",
-    url: "https://dpsrestov2.vercel.app/",
+    url: "",
     img: "/img/software/dpsresto.png",
     title: "DPS Resto ",
     category: "Food-Tech ",
