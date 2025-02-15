@@ -51,7 +51,7 @@ export default function NPOServices() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Customized solutions to meet your non-profit's specific needs.
+                Customized solutions to meet your non-profit&lsquo;s specific needs.
               </p>
             </CardContent>
           </Card>
