@@ -28,7 +28,7 @@ export default function HeaderPopOver() {
                   className="flex items-start rounded-lg p-3 transition duration-150 ease-in-out hover:bg-slate-100 focus:outline-none"
                 >
                   <Icon IconComponent={item.icon} textColor={item.textColor} className="flex-shrink-0 h-6 w-6 mr-4" />
-                  <div>
+                  <div> 
                     <p className="text-sm font-medium text-gray-900">{item.name}</p>
                     <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                   </div>
