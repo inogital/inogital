@@ -1,96 +1,103 @@
-import { Facebook, Linkedin, PhoneCall, Twitter } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa"
+
+import { mainNav } from "@/lib/data/nav"
 
 export default function Footer() {
-  const Year = new Date().getFullYear();
+  const year = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-slate-950  text-white z-10 pb-10 pt-20  lg:pb-20 lg:pt-[120px]">
-      <div className="mx-auto px-6">
-        <div className="-mx-4 flex flex-wrap">
-          <FooterSection className="w-full px-4 sm:w-2/3 lg:w-3/12">
-            <Link href="/" className="mb-6 inline-block max-w-[160px]">
-              <Image
-                src="/img/inOgital.png"
-                alt="logo"
-                width={150}
-                height={150}
-                className="max-w-full"
-              />
-            </Link>
-            <p className="mb-7 text-base">inOgital is a leading provider of innovative digital solutions.</p>
-            <ContactInfo />
-          </FooterSection>
+    <footer className="border-t border-zinc-200 bg-white">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <Link href="/" className="inline-block">
+            <Image
+              src="/img/inOgital.png"
+              alt="inOgital"
+              width={150}
+              height={48}
+              className="h-10 w-auto"
+            />
+          </Link>
+          <p className="mt-4 max-w-xs text-sm text-zinc-600">
+            inOgital is a leading provider of innovative digital solutions.
+          </p>
+        </div>
 
-          <LinkGroup header="Quick Links">
-            <NavLink link="/software" label="Software Development" />
-            <NavLink link="/gservices" label="Google Services" />
-            <NavLink link="/training" label="Training" />
-            <NavLink link="/npos" label="Non-Profit" />
-          </LinkGroup>
+        <div>
+          <h2 className="text-sm font-semibold text-zinc-950">Explore</h2>
+          <ul className="mt-4 space-y-2">
+            {mainNav
+              .filter((item) => item.href !== "/")
+              .map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-zinc-600 hover:text-zinc-950">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
 
-          <FooterSection className="w-full px-4 sm:w-1/2 lg:w-3/12">
-            <h4 className="mb-9 text-lg font-semibold">Contact</h4>
-            <Link href="mailto:info@inogital.com" className="text-base text-body-color dark:text-dark-6">info@inogital.com</Link>
-          </FooterSection>
+        <div>
+          <h2 className="text-sm font-semibold text-zinc-950">Company</h2>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <Link href="/about" className="text-sm text-zinc-600 hover:text-zinc-950">
+                About
+              </Link>
+            </li>
+            <li>
+              <a
+                href="mailto:info@inogital.com"
+                className="text-sm text-zinc-600 hover:text-zinc-950"
+              >
+                info@inogital.com
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          <FooterSection className="w-full px-4 sm:w-1/2 lg:w-3/12">
-            <h4 className="mb-9 text-lg font-semibold">Follow Us On</h4>
-            <SocialLinks />
-            <p className="text-base text-body-color dark:text-dark-6">
-              &copy; {Year} inOgital. All rights reserved.
-            </p>
-          </FooterSection>
+        <div>
+          <h2 className="text-sm font-semibold text-zinc-950">Follow us</h2>
+          <div className="mt-4 flex items-center gap-3">
+            <SocialLink href="https://www.linkedin.com/company/inogital" label="LinkedIn">
+              <FaLinkedin className="size-4" />
+            </SocialLink>
+            <SocialLink href="https://www.facebook.com/inOgital" label="Facebook">
+              <FaFacebook className="size-4" />
+            </SocialLink>
+            <SocialLink href="https://twitter.com/inogital" label="Twitter">
+              <FaTwitter className="size-4" />
+            </SocialLink>
+          </div>
+          <p className="mt-6 text-sm text-zinc-500">
+            &copy; {year} inOgital. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-const FooterSection = ({ children, className }: { children: React.ReactNode; className: string }) => (
-  <div className={`mb-10 w-full ${className}`}>{children}</div>
-);
-
-const ContactInfo = () => (
-  <p className="flex items-center text-sm font-medium">
-    <PhoneCall />
-    <span></span>
-  </p>
-);
-
-const LinkGroup = ({ children, header }: { children: React.ReactNode; header: string }) => (
-  <FooterSection className="w-full px-4 sm:w-1/2 lg:w-2/12">
-    <h4 className="mb-9 text-lg font-semibold text-dark">{header}</h4>
-    <ul className="space-y-3">{children}</ul>
-  </FooterSection>
-);
-
-const NavLink = ({ link, label }: { link: string; label: string }) => (
-  <li>
+function SocialLink({
+  href,
+  label,
+  children,
+}: {
+  href: string
+  label: string
+  children: React.ReactNode
+}) {
+  return (
     <Link
-      href={link}
-      className="inline-block text-base leading-loose text-body-color hover:text-primary"
+      href={href}
+      target="_blank"
+      aria-label={label}
+      className="flex size-8 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
     >
-      {label}
+      {children}
     </Link>
-  </li>
-);
-
-const SocialLinks = () => (
-  <div className="mb-6 flex items-center">
-    <SocialLink href="https://www.linkedin.com/company/inogital" icon={<Linkedin />} />
-    <SocialLink href="https://www.facebook.com/inOgital" icon={<Facebook />} />
-    <SocialLink href="https://twitter.com/inogital" icon={<Twitter />} />
-  </div>
-);
-
-const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
-  <Link
-    href={href}
-    target="_blank"
-    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 sm:mr-4 lg:mr-3 xl:mr-4"
-  >
-    {icon}
-  </Link>
-);
+  )
+}

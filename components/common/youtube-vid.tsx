@@ -1,51 +1,56 @@
-'use client'
+"use client"
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react"
 
 type Props = {
-  videoId: string;
-};
+  videoId: string
+}
 
 const YoutubeVid = ({ videoId }: Props) => {
-  const [load, setLoad] = useState(false);
-  const videoRef = useRef<HTMLDivElement | null>(null);
+  const [load, setLoad] = useState(false)
+  const videoRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        setLoad(true);
-        observer.disconnect();
+        setLoad(true)
+        observer.disconnect()
       }
-    });
+    })
 
-    const currentVideoRef = videoRef.current; // Store the current value
+    const currentVideoRef = videoRef.current
 
     if (currentVideoRef) {
-      observer.observe(currentVideoRef);
+      observer.observe(currentVideoRef)
     }
 
     return () => {
       if (currentVideoRef) {
-        observer.unobserve(currentVideoRef);
+        observer.unobserve(currentVideoRef)
       }
-    };
-  }, [videoRef]);
+    }
+  }, [])
 
   return (
-    <div ref={videoRef}>
+    <div
+      ref={videoRef}
+      className="overflow-hidden rounded-2xl border border-white/10 bg-black"
+    >
       {load ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}`} 
+          src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className='w-full h-[40vh] md:h-[60vh]'
-        ></iframe>
+          className="aspect-video h-auto w-full"
+        />
       ) : (
-        <div>Loading...</div>
+        <div className="flex aspect-video items-center justify-center text-sm text-zinc-500">
+          Loading...
+        </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default YoutubeVid;
+export default YoutubeVid

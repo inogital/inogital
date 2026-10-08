@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next'
+
+import { trainings } from '@/lib/data/training'
  
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -44,5 +46,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly',
         priority: 0.4,
       },
+      ...trainings.map((training) => ({
+        url: `https://www.inogital.com/training/${training.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.5,
+      })),
   ]
 }

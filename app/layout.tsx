@@ -1,8 +1,15 @@
-import Header from "@/components/common/header";
-import "./globals.css";
-import { siteConfig } from "@/config/site";
-import { Toaster } from "react-hot-toast";
-import Footer from "@/components/common/footer";
+import { Manrope } from "next/font/google"
+
+import Header from "@/components/common/header"
+import Footer from "@/components/common/footer"
+import { siteConfig } from "@/config/site"
+
+import "./globals.css"
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
 
 export const metadata = {
   title: {
@@ -45,21 +52,20 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Toaster />
+    <html lang="en" className={`${manrope.variable} h-full`}>
+      <body className="flex min-h-full flex-col font-sans">
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
       </body>
     </html>
-  );
+  )
 }

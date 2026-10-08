@@ -1,16 +1,15 @@
-
-import CTA from "@/components/common/call-to-action";
-import HeroSection from "@/components/home/hero-section";
-import OurPartners from "@/components/home/our-partners";
-import OurSolutions from "@/components/home/our-solutions";
+import ClosingBand from "@/components/home/closing-band"
+import HeroSection from "@/components/home/hero-section"
+import OurPartners from "@/components/home/our-partners"
+import OurSolutions from "@/components/home/our-solutions"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main>
       <HeroSection />
-      <OurSolutions/>
-      <OurPartners/>
-      <CTA />
+      <OurSolutions />
+      <OurPartners />
+      <ClosingBand />
     </main>
-  );
+  )
 }

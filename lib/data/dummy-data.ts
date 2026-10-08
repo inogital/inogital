@@ -1,43 +1,3 @@
-export const servicesData = [
-  { label: "Google Services", value: "gservices" },
-  { label: "Software & Web Development", value: "software" },
-  { label: "Tech Training", value: "tech" },
-  { label: "Network Services", value: "network" },
-] as const;
-
-[
-  {
-    
-  },
-  {
-    id: "a6c475c7-7f9b-4375-a321-9796f53cf5f3",
-  },
-  {
-    id: "f9680fa3-8704-4e36-9da1-d89a1bda0edf",
-  },
-  {
-    id: "9501f400-c4f4-4111-bd64-535198702e7b",
-  },
-  {
-    id: "c67ff2bb-04f8-4b8c-b17f-6cb4dd41886c",
-  },
-  {
-    id: "83265d28-1695-4112-afb9-6eb82c7a82ef",
-  },
-  {
-    id: "918ca563-d433-4c1f-b988-8692f94ce227",
-  },
-  {
-   
-  },
-  {
-    
-  },
-  {
-    
-  },
-];
-
 export const TrainingData = [
   {
     id: "3ffd954e-e9bd-444d-80c1-329d7c6ea3cd",
@@ -64,7 +24,7 @@ export const TrainingData = [
     img: "/img/training/webfortea.png",
     title: "Web Design for Teachers",
     duration: 2.5,
-    for: [ "schools"],
+    for: ["schools"],
     todo: ["Use no code tools", "Design a website", "Deploy your website", "Update your website"],
     description:
       "Design your school website in less than 3 hrs. No coding skills required",
@@ -79,8 +39,7 @@ export const TrainingData = [
     description:
       "Access resources from anywhere at anytime securely with your Org domain",
   },
-  
-];
+]
 
 export const ProjectsDemos = [
   {
@@ -127,4 +86,4 @@ export const ProjectsDemos = [
     video: "b-57s2E9KdA ",
     slug: "bath ",
   },
-];
+]
